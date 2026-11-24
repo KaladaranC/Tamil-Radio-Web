@@ -1,16 +1,20 @@
 import Hero from "@/components/Hero";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import StoreBadges from "@/components/StoreBadges";
 import { site, tel, webStreamUrl } from "@/lib/site";
 
 // The page is one walk around the radio: each screen is one camera stop (RadioScene STOPS).
 // 1 the front (Hero), 2 the lit dial (where to listen), 3 the antenna (call the studio).
 
-const ways = [
+type Way = { name: string; body: string; link?: { href: string; label: string }; badges?: boolean };
+
+const ways: Way[] = [
   {
-    name: "The Android app",
-    body: "Keeps playing with the screen locked, has a sleep timer that switches the radio off after 15 to 90 minutes, and sends your song requests to the studio.",
-    link: { href: site.playStore, label: "Install from Google Play" },
+    name: "The app, for iPhone and Android",
+    // sleep timer and requests are verified in the Android build only; the iPhone app is ILC's existing listing
+    body: "Keeps playing with the screen locked. On Android it also has a sleep timer that switches the radio off after 15 to 90 minutes, and sends your song requests to the studio.",
+    badges: true,
   },
   {
     name: "YouTube",
@@ -51,10 +55,16 @@ export default function Home() {
                   <div key={w.name}>
                     <dt className="font-display text-2xl font-semibold [font-stretch:87.5%]">{w.name}</dt>
                     <dd className="mt-1 text-[17px] leading-relaxed text-haze">
-                      {w.body}{" "}
-                      <a href={w.link.href} className={`${linkCls} whitespace-nowrap`}>
-                        {w.link.label}
-                      </a>
+                      {w.body}
+                      {w.link && (
+                        <>
+                          {" "}
+                          <a href={w.link.href} className={`${linkCls} whitespace-nowrap`}>
+                            {w.link.label}
+                          </a>
+                        </>
+                      )}
+                      {w.badges && <StoreBadges className="mt-4" />}
                     </dd>
                   </div>
                 ))}

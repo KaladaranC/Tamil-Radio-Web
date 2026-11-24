@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
 import { site, tel, webStreamUrl } from "@/lib/site";
 import { useMediaQuery } from "@/lib/useMediaQuery";
+import StoreBadges from "./StoreBadges";
 
 // WebGL only exists in the browser; a dim amber glow holds the space while the scene loads.
 const RadioScene = dynamic(() => import("./radio/RadioScene"), {
@@ -48,7 +49,7 @@ export default function Hero() {
         ? playing
           ? "Playing ILC Tamil Radio live."
           : "Connecting to the stream."
-        : "Tuned to ILC. Live sound plays in the Android app for now.";
+        : "Tuned to ILC. Live sound plays in the app for now.";
 
   return (
     <>
@@ -65,7 +66,7 @@ export default function Hero() {
               தமிழ் வானொலி
             </p>
             <h1 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.4rem)] font-semibold leading-[1.08] tracking-[-0.01em] [font-stretch:87.5%]">
-              ILC Tamil Radio, live on the web and on Android.
+              ILC Tamil Radio, live on the web, iPhone and Android.
             </h1>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -85,17 +86,13 @@ export default function Hero() {
                 </span>
                 {on ? "Switch the radio off" : "Switch the radio on"}
               </button>
-              <a
-                href={site.playStore}
-                className="inline-flex min-h-12 items-center rounded-full px-5 font-semibold text-chalk underline decoration-chalk/30 decoration-1 underline-offset-[6px] transition-colors hover:decoration-amber"
-              >
-                Get the Android app
-              </a>
             </div>
 
             <p aria-live="polite" className={`mt-3 min-h-6 text-sm ${error ? "text-kumkum" : "text-amber"}`}>
               {status}
             </p>
+
+            <StoreBadges className="mt-4" />
 
             <p className="mt-6 text-[17px] leading-relaxed text-haze">
               Live phone-in line{" "}

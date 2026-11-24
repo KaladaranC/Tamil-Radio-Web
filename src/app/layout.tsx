@@ -12,7 +12,7 @@ const mono = Azeret_Mono({ variable: "--font-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: { default: `${site.name}: live Tamil radio`, template: `%s · ${site.name}` },
-  description: "Listen to ILC Tamil Radio live, on the web and on Android.",
+  description: "Listen to ILC Tamil Radio live, on the web and in the app for iPhone and Android.",
 };
 
 export const viewport: Viewport = { themeColor: "#0e1326" };

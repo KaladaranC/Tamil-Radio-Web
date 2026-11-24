@@ -4,6 +4,8 @@ export const site = {
   url: "https://ilctamil.com",
   email: "ilctamilradio@gmail.com",
   playStore: "https://play.google.com/store/apps/details?id=com.techunk.ilctamilradio",
+  // Live listing (Apple search API, 2026-11-24): "ILC Tamil Radio", bundle com.techunk.ilctamilradio
+  appStore: "https://apps.apple.com/app/id1590737414",
   youtube: "https://www.youtube.com/user/ILCTamilRadio",
   facebook: "https://www.facebook.com/search/top?q=ILC%20Tamil%20Radio",
   phones: {
