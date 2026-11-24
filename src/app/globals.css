@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* Night room lit by a valve radio: indigo dark, amber dial glow, kumkum red on-air lamp. */
+:root {
+  --night: #0e1326;
+  --dusk: #1a2140;
+  --chalk: #efe6d8;
+  --haze: #9aa1bd;
+  --amber: #f2a640;
+  --kumkum: #d33a2f;
+}
+
+@theme inline {
+  --color-night: var(--night);
+  --color-dusk: var(--dusk);
+  --color-chalk: var(--chalk);
+  --color-haze: var(--haze);
+  --color-amber: var(--amber);
+  --color-kumkum: var(--kumkum);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--night);
+  color: var(--chalk);
+  caret-color: var(--amber);
+}
+
+/* the parts the browser draws: themed from the palette, not left at defaults */
+::selection {
+  background: var(--amber);
+  color: var(--night);
+}
+html {
+  scrollbar-color: #3a4370 var(--night);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
